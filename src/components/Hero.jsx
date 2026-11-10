@@ -1,8 +1,6 @@
-import { useRef } from 'react';
 import { Download } from 'lucide-react';
 import { media } from '../data/site';
 import { Action } from './UI';
-import { HeroRippleCanvas } from './HeroRippleCanvas';
 
 function RippleField({ id, scale }) {
   return <filter id={id} x="-5%" y="-10%" width="110%" height="120%" colorInterpolationFilters="sRGB">
@@ -31,16 +29,13 @@ function OceanRippleFilters() {
 }
 
 export function Hero({ onResume }) {
-  const water = useRef(null);
-
   return <section id="home" className="hero sea-section" aria-labelledby="home-title">
     <OceanRippleFilters />
     <div className="hero-parallax"><div className="hero-art">
       <picture aria-hidden="true">
         <source media="(min-width: 741px)" srcSet={media.waves} />
-        <img className="hero-wave-image" src={media.heroWaves} ref={water} alt="" fetchPriority="high" />
+        <img className="hero-wave-image" src={media.heroWaves} alt="" fetchPriority="high" />
       </picture>
-      <HeroRippleCanvas imageRef={water} />
     </div></div>
     <div className="shell hero-inner">
       <div className="hero-copy">
