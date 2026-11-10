@@ -1,0 +1,29 @@
+.site-header {
+  position: fixed; z-index: 20; inset: 0 0 auto; color: var(--ivory); --focus: var(--gold);
+  background: linear-gradient(180deg, #071725b3, #07172500); transition: background .25s ease;
+  &--solid { background: #0b1d33f5; }
+}
+.header-inner { height: var(--header-height); display: flex; align-items: center; gap: clamp(.75rem, 2.6vw, 2.6rem); border-bottom: 1px solid #f4f1ea33; }
+.wordmark { display: inline-flex; align-items: center; min-height: 44px; letter-spacing: .17em; font-weight: 650; font-size: var(--text-h6); white-space: nowrap; }
+.site-header nav { display: flex; align-items: center; gap: clamp(.8rem, 2.7vw, 3rem); margin-left: auto; }
+.site-header nav a { position: relative; font-size: var(--text-button); color: #eef0f1d9; display: grid; min-height: 44px; place-items: center; }
+.site-header nav a::after { content: ''; position: absolute; bottom: .28rem; left: 0; right: 0; height: 1px; background: var(--ivory); transform: scaleX(0); transition: transform .2s; }
+.site-header nav a:is(:hover, [aria-current]) { color: white; }
+.site-header nav a:is(:hover, [aria-current])::after { transform: scaleX(1); }
+.header-actions { display: flex; align-items: center; gap: .2rem; margin-left: auto; }
+.theme-toggle, .menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid transparent; background: transparent; }
+.theme-toggle:hover, .menu-toggle:hover { background: #fff2; border-color: #fff3; }
+.menu-toggle { display: none; }
+.scroll-progress { position: absolute; inset: auto 0 0; height: 2px; pointer-events: none; }
+.scroll-progress span { height: 100%; display: block; transform: scaleX(0); transform-origin: left center; background: var(--gold); }
+@media (min-width: 901px) { .header-actions { margin-left: 0; } }
+@media (max-width: 800px) {
+  .menu-toggle { display: grid; }
+  .site-header nav {
+    display: none; position: absolute; top: 100%; inset-inline: 0; background: var(--navy); padding: .7rem 5.5% 1.1rem; border-bottom: 1px solid #fff3;
+    &.is-open { display: grid; gap: 0; }
+    a { justify-items: start; padding-inline: .55rem; border-bottom: 1px solid #fff2; }
+    a[aria-current] { color: var(--gold); }
+    a::after { display: none; }
+  }
+}

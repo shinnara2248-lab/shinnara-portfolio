@@ -1,0 +1,28 @@
+:root {
+  --navy: #0b1d33;
+  --ocean: #173b5c;
+  --ivory: #f4f1ea;
+  --white: #fff;
+  --cobalt: #315edb;
+  --soft-gray: #a7b0bb;
+  --gold: #e4bd92;
+  --serif: 'Playfair Display Variable', Georgia, serif;
+  --sans: 'Pretendard Variable', Pretendard, Arial, sans-serif;
+  --text-caption: clamp(max(11px, .6875rem), calc(.64rem + .18vw), max(13px, .8125rem));
+  --text-label: clamp(.75rem, calc(.7rem + .21vw), .875rem);
+  --text-small: clamp(.8125rem, calc(.775rem + .16vw), .9375rem);
+  --text-button: clamp(.875rem, calc(.835rem + .18vw), 1rem);
+  --text-body: clamp(.9375rem, calc(.9rem + .18vw), 1.0625rem);
+  --text-lead: clamp(1rem, calc(.94rem + .28vw), 1.25rem);
+  --text-h1: clamp(3.05rem, calc(2.45rem + 5.3vw), 9.5rem);
+  --text-h2: clamp(2rem, calc(1.45rem + 2.25vw), 4.5rem);
+  --text-h3: clamp(1.375rem, calc(1.15rem + 1.05vw), 2.1875rem);
+  --text-h4: clamp(1.1875rem, calc(1.06rem + .58vw), 1.5625rem);
+  --text-h5: clamp(1.0625rem, calc(.98rem + .33vw), 1.25rem);
+  --text-h6: clamp(1rem, calc(.925rem + .23vw), 1.125rem);
+  --text-modal-title: clamp(1.6875rem, calc(1.3rem + 1.8vw), 3rem);
+  --text-hero-tagline: clamp(1.75rem, calc(1.14rem + 3.5vw), 5.2rem);
+  --header-height: 74px;
+  --shell: min(83.4%, 1500px);
+  --space: clamp(3.5rem, 6.1vw, 7.2rem);
+}

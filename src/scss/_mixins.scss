@@ -1,0 +1,5 @@
+@mixin photographic-band($position) {
+  background:
+    linear-gradient(90deg, #081c2dee, #0b263bd9 50%, #102f48bd),
+    var(--sea) center $position / cover no-repeat;
+}

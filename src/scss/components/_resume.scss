@@ -1,0 +1,72 @@
+@use '../mixins' as m;
+.resume { overflow: clip; @include m.photographic-band(82%); padding-block: clamp(2.9rem, 4.8vw, 5.6rem); }
+@media (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+  .resume {
+    position: relative;
+    isolation: isolate;
+    background-image: none;
+
+    &::before {
+      @include m.photographic-band(82%);
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: -12% 0;
+      transform: translateY(calc((var(--sea-scroll, 50%) - 50%) * .4));
+      pointer-events: none;
+    }
+  }
+}
+.resume-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.5fr) minmax(0, .85fr); align-items: center; gap: clamp(1rem, 3.1vw, 3.5rem); }
+.resume-mockup { position: relative; isolation: isolate; padding-inline: clamp(0rem, 2vw, 2rem); }
+.resume-orbit { z-index: -1; position: absolute; inset: -8% -16%; border: 1px solid #e4bd9244; border-radius: 50%; transform: rotate(-10deg); pointer-events: none; }
+.resume-actions { display: grid; justify-content: center; gap: .6rem; }
+.resume-actions small { color: #d8dce0; font-size: var(--text-caption); text-align: center; }
+.resume-book { display: grid; grid-template-columns: .72fr 1fr; color: #192c3b; width: 100%; min-height: 175px; font-family: var(--sans); }
+.resume-mockup .resume-book { transform: perspective(900px) rotateX(5deg) rotateY(10deg); filter: drop-shadow(0 12px 15px #00101c91); }
+.book-cover, .book-page { padding: clamp(.75rem, 2.1vw, 2rem); }
+.book-cover { border-radius: 5px 2px 2px 5px; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(95deg, #f5eee4, #e0d8cc 92%, #bbb2a6); }
+.book-cover span { display: block; font-size: var(--text-caption); font-weight: 750; letter-spacing: .14em; }
+.book-cover span:last-child { margin-top: 1.2em; }
+.book-cover strong { font: 500 var(--text-h5)/1.2 var(--serif); margin-top: .4em; }
+.book-cover em { font: italic var(--text-label)/1.3 var(--serif); }
+.book-page { background: #faf5ec; border-radius: 0 4px 4px 0; font-size: var(--text-caption); line-height: 1.35; }
+.book-page strong { font-size: var(--text-label); }
+.book-label { border-bottom: 1px solid #bcb5ac; font-size: var(--text-caption); font-weight: 800; letter-spacing: .08em; margin: .85em 0 .38em; }
+.book-label:first-child { margin-top: 0; }
+.resume-image { width: 100%; height: auto; }
+.resume-mockup .resume-image { width: min(100%, clamp(150px, 16vw, 215px)); margin-inline: auto; border-radius: 4px; box-shadow: 0 12px 26px #00101c91; }
+.resume-fan {
+  display: grid; justify-items: center; gap: .45rem; width: min(100%, 400px);
+  margin-inline: auto; padding: 0; border: 0; border-radius: 8px;
+  color: inherit; background: transparent;
+}
+.resume-fan-stage {
+  display: grid; place-items: center; width: 100%; aspect-ratio: 1.33;
+  perspective: 750px;
+}
+.resume-fan-stage img {
+  grid-area: 1 / 1; width: 48%; height: auto; border-radius: 4px;
+  border: 1px solid #e4e0d8; background: #fff; box-shadow: 0 12px 23px #0009;
+  transform: translateX(calc(var(--page-offset) * 31%))
+    translateY(calc(var(--page-distance) * 4%)) rotate(calc(var(--page-offset) * 10deg));
+  transform-origin: center 80%; transition: transform .3s ease;
+}
+.resume-fan:is(:hover, :focus-visible) .resume-fan-stage img {
+  transform: translateX(calc(var(--page-offset) * 35%))
+    translateY(calc(var(--page-distance) * 4% - 3%)) rotate(calc(var(--page-offset) * 11deg));
+}
+.resume-fan-count { color: #d8dce0; font-size: var(--text-caption); letter-spacing: .05em; }
+
+@media (max-width: 900px) {
+  .resume-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr); }
+  .resume-actions { grid-column: 1 / -1; justify-content: start; grid-template-columns: repeat(2, auto); }
+  .resume-actions small { grid-column: 2; }
+}
+@media (max-width: 560px) {
+  .resume-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+  .resume-mockup { width: 85%; margin-inline: auto; }
+  .resume-orbit { inset-inline: -8%; }
+  .resume-actions { justify-content: center; width: 100%; }
+  .resume-actions .action { padding-inline: .75rem; gap: .45rem; }
+}

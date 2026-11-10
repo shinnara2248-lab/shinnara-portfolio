@@ -1,0 +1,41 @@
+.modal {
+  width: min(590px, calc(100% - 2rem)); max-height: min(86dvh, 850px);
+  padding: 0; border: 1px solid var(--rule); border-radius: 16px; background: var(--paper-raised); color: var(--ink);
+  box-shadow: 0 18px 80px #0006; overscroll-behavior: contain;
+  &--wide { width: min(790px, calc(100% - 2rem)); }
+  &::backdrop { background: #061322bd; }
+}
+.modal-panel { padding: clamp(1.2rem, 4vw, 2.6rem); position: relative; }
+.modal-close { position: absolute; right: .75rem; top: .75rem; }
+.modal .eyebrow { padding-right: 3rem; }
+.modal h2 { font-size: var(--text-modal-title); margin: .38rem 2rem 1rem 0; }
+.modal h3 { margin-top: 1.25rem; }
+.modal p + p { margin-top: .5rem; }
+.modal ol, .modal ul:not(.tags) { margin: .5rem 0 0; padding-left: 1.25rem; }
+.modal li + li { margin-top: .22rem; }
+.modal .tags li + li { margin-top: 0; }
+.modal .project-art { margin-top: 1rem; }
+.modal .asset-credit { font-size: var(--text-small); color: var(--muted); margin-block: .45rem .6rem; }
+.project-facts { margin-block: 1.25rem; }
+.project-facts > div { display: grid; grid-template-columns: 5.2rem 1fr; align-items: center; border-top: 1px solid var(--rule); padding-block: .55rem; }
+.project-facts dt { font-weight: 650; }
+.project-facts dd { margin: 0; }
+.project-facts .tags { margin: 0; }
+.modal-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: .9rem; }
+.resume-toolbar { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin: .9rem 0; }
+.resume-toolbar output { min-width: 3.1rem; text-align: center; }
+.resume-toolbar .action { margin-left: auto; }
+.resume-toolbar .action:disabled { background: transparent; color: var(--ink); border-color: var(--rule); }
+.resume-reader { overflow: auto; max-height: 53dvh; background: var(--paper); border: 1px solid var(--rule); padding: .75rem; }
+.resume-reader .resume-book { min-height: clamp(220px, 36vw, 365px); }
+.resume-reader .book-cover, .resume-reader .book-page { font-size: var(--text-small); }
+.resume-pdf { width: 100%; min-height: 52dvh; }
+.resume-original { display: inline-block; margin-bottom: .65rem; text-decoration: underline; text-underline-offset: .17em; }
+.modal .resume-pages { display: grid; gap: .65rem; list-style: none; margin: 0; padding: 0; }
+.modal .resume-pages li + li { margin: 0; }
+@media (max-width: 470px) {
+  .resume-toolbar .action { margin-left: 0; min-height: 44px; padding-inline: .65rem; }
+  .resume-toolbar { gap: .25rem; }
+  .resume-toolbar output { min-width: 2.6rem; }
+  .resume-reader .resume-book { grid-template-columns: 1fr; min-height: 0; }
+}
